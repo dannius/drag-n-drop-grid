@@ -1,3 +1,14 @@
-<p>
-  grid-dashboard works!
-</p>
+<div class="menu">
+  <button class="btn-icon" (click)="addItem()">
+    <span class="btn-icon__text">Add item</span>
+    <i class="material-icons">add</i>
+  </button>
+</div>
+
+<gridster [options]="options">
+  <gridster-item [item]="item" *ngFor="let item of dashboard; let idx = index">
+    <button (click)="removeItem($event, index)" class="btn-icon">
+      <i class="material-icons">delete</i>
+    </button>
+  </gridster-item>
+</gridster>
