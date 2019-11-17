@@ -36,6 +36,13 @@ export class GridDashboardContainer implements OnInit {
   }
 
   public addItem() {
-    this.dashboard.push({ cols: 2, rows: 2, x: 0, y: 0 });
+    const lastItem = this.dashboard[this.dashboard.length - 1];
+
+    this.dashboard.push({
+      cols: 2,
+      rows: 2,
+      x: lastItem ? lastItem.x : 0,
+      y: lastItem ? lastItem.y + 2 : 0,
+    });
   }
 }
