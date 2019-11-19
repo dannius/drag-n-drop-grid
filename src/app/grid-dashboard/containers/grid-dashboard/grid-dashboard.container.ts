@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ElementRef, Renderer2 } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
 import { gridOptions } from './grid-options';
 
@@ -12,6 +12,11 @@ export class GridDashboardContainer implements OnInit {
 
   public options: GridsterConfig;
   public dashboard: Array<GridsterItem>;
+
+  constructor(
+    private readonly _elRef: ElementRef,
+    private readonly _renderer2: Renderer2,
+  ) {}
 
   public ngOnInit() {
     this.options = gridOptions;
@@ -33,6 +38,7 @@ export class GridDashboardContainer implements OnInit {
     $event.stopPropagation();
 
     this.dashboard.splice(itemIndex, 1);
+    this.hidePreview();
   }
 
   public addItem() {
@@ -43,6 +49,17 @@ export class GridDashboardContainer implements OnInit {
       rows: 2,
       x: lastItem ? lastItem.x : 0,
       y: lastItem ? lastItem.y + 2 : 0,
+    });
+  }
+
+  /**
+   * angular-gridster2 library's issue fix.
+   * Remove it when issue will be fixed.
+   */
+  private hidePreview() {
+    setTimeout(() => {
+      const preview = this._elRef.nativeElement.getElementsByTagName('gridster-preview');
+      this._renderer2.setStyle(preview[0], 'display', '');
     });
   }
 }

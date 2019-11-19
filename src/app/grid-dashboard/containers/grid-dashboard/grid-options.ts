@@ -1,7 +1,7 @@
-import { CompactType, DisplayGrid, GridType } from 'angular-gridster2';
+import { CompactType, DisplayGrid, GridType, GridsterConfig } from 'angular-gridster2';
 
-export const gridOptions = {
-  gridType: GridType.Fit,
+export const gridOptions: GridsterConfig = {
+  gridType: GridType.VerticalFixed,
   compactType: CompactType.None,
   margin: 10,
   outerMargin: true,
@@ -10,17 +10,17 @@ export const gridOptions = {
   outerMarginBottom: null,
   outerMarginLeft: null,
   useTransformPositioning: true,
-  mobileBreakpoint: 0,
+  mobileBreakpoint: 500,
   minCols: 10,
   maxCols: 10,
   minRows: 10,
   maxRows: 10,
-  maxItemCols: 100,
-  minItemCols: 1,
-  maxItemRows: 100,
-  minItemRows: 1,
-  maxItemArea: 2500,
-  minItemArea: 1,
+  maxItemCols: 10,
+  minItemCols: 2,
+  maxItemRows: 10,
+  minItemRows: 2,
+  maxItemArea: 100,
+  minItemArea: 4,
   defaultItemCols: 1,
   defaultItemRows: 1,
   fixedColWidth: 105,
@@ -41,7 +41,7 @@ export const gridOptions = {
     enabled: true,
   },
   resizable: {
-    enabled: false,
+    enabled: true,
   },
   swap: false,
   pushItems: true,
@@ -49,7 +49,7 @@ export const gridOptions = {
   disablePushOnResize: false,
   pushDirections: { north: true, east: true, south: true, west: true },
   pushResizeItems: false,
-  displayGrid: DisplayGrid.None,
+  displayGrid: DisplayGrid.Always,
   disableWindowResize: false,
   disableWarnings: false,
   scrollToNewItems: false,

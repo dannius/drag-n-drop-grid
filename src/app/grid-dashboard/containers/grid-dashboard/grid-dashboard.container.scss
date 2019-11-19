@@ -1,3 +1,9 @@
+::ng-deep {
+  gridster-item:hover .gridster-item-resizable-handler.handle-se {
+    border-bottom-color: #aaa !important;
+  }
+}
+
 :host {
   display: flex;
   flex-direction: column;

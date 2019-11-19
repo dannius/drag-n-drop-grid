@@ -8,7 +8,11 @@
 <gridster class="gridster" [options]="options">
   <gridster-item [item]="item" *ngFor="let item of dashboard; let idx = index">
     <button mat-icon-button>
-      <mat-icon (click)="removeItem($event, idx)">delete</mat-icon>
+      <mat-icon (mousedown)="removeItem($event, idx)" (touchstart)="removeItem($event, idx)">delete</mat-icon>
     </button>
+
+    <h1 style="text-align: center;">{{ idx + 1 }}</h1>
   </gridster-item>
 </gridster>
+
+
