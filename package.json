@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-ghp": "ng build --prod --base-href=/drag-n-drop-grid/ --build-optimizer --vendor-chunk",
+    "deploy-ghp": "ngh --dir=dist/grid"
   },
   "private": true,
   "dependencies": {
